@@ -1,10 +1,17 @@
-program ma;
-procedure PrintChars(ch	: char;count:integer);
+program plain_numbers;
+procedure plain (n : integer);
 var
-   i : integer;
+   r,i,j : integer;
    begin
-      i:=0;
-      while i< 0 do
+      for i:=2 to n do
 	 begin
-	    PrintChars(ch,count +1
-		       en)
+	    for j:=1 to i do
+	       begin
+		  r:=i mod j;
+		  writeln(i,' ',r)
+	       end;
+	 end
+   end;
+begin
+   plain(5)
+end.
