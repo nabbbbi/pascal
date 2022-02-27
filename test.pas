@@ -12,11 +12,6 @@ var
 	       end;
 	 end
    end;
-type
-   arr:	array [0..n] of integer;
-   var
-      n	: integer;
 begin
-   read(n);
-   plain(n)
+   plain(5)
 end.
