@@ -23,6 +23,6 @@ var
 			end;
 		  if print then
 		     write(c)
-	       end;
-	 end;
+	       end
+	 end
    end.
