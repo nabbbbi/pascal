@@ -12,14 +12,14 @@ var
 	       begin
 		  if print and know then {now knowing printing or not}
 		     writeln;
-		  know:=false {s}
+		  know:=false {stil don't know}
 		  end
 	    else
 	       begin
-		  if not know then
+		  if not know then {in knowing that's what we should do}
 		     begin
-			print:= (c <> ' ') and (c <> #9);
-			know:= true
+			print:= (c <> ' ') and (c <> #9); {exclude 'space' and 'tabulation'}
+			know:= true {know we printing}
 		     end;
 		  if print then
 		     write(c)
