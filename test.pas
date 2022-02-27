@@ -20,7 +20,7 @@ var
 		  writeln(t[j].ii,' ',t[j].r) {shows all divider}
 	       end;
 	 end;
-      {for j:=1 to n do
+      { for j:=1 to n do
 	 writeln(t[j].ii,' ', t[j].r)} {shows 1 dividers = n}
    end;
 begin
