@@ -8,19 +8,19 @@ var
       while not eof do
 	 begin
 	    read(c);
-	    if c = #10 then {enter}
+	    if c = #10 then
 	       begin
-		  if print and know then {}
+		  if print and know then {now knowing printing or not}
 		     writeln;
-		  know:=false {are we printing?}
-	       end
-		  else
+		  know:=false {stil don't know}
+		  end
+	    else
+	       begin
+		  if not know then {if knowing, that's what we should do}
 		     begin
-		     if not know then
-			begin
-			   print:= (c <> ' ') and (c <> #9); {any symbol barring "space" and "tabulation"}
-			   know:=true {Yes! We printing}
-			end;
+			print:= (c <> ' ') and (c <> #9); {exclude 'space' and 'tabulation'}
+			know:= true {know we printing}
+		     end;
 		  if print then
 		     write(c)
 	       end
