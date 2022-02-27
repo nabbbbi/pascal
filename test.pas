@@ -1,25 +1,28 @@
 program plain_numbers;
-procedure plain (n : integer);
 type
    arr	= record
 	     ii	: integer;
-	     rr	: integer;
+	     r	: integer;
 	  end;	
    arr1	= array [1..10] of arr;
 var
-   {r,}i,j : integer;
-   t	 : arr1;
+   t : arr1;
+procedure plain (n: integer);
+var
+   i,j : integer;
    begin
       for i:=2 to n do
 	 begin
 	    for j:=1 to i do
 	       begin
-		  t[j].rr:= i mod j;
+		  t[j].r:= i mod j;
 		  t[j].ii:=i;
-		  writeln(t[j].ii,' ',t[j].rr)
+		 { writeln(t[j].ii,' ',t[j].r)}
 	       end;
-	 end
+	 end;
+      for j:=1 to n do
+	 writeln(t[j].ii,' ', t[j].r)
    end;
 begin
-   plain(5)
+  plain(5) 
 end.
