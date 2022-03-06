@@ -19,11 +19,12 @@ var
 	    halt(1)
 	 end;
       rem:= n mod k; // reminder of dividing}
-      m:= n div k;  
+      m:= n div k;
+      writeln('rem:= ',rem,' ', 'm:= ',m);
       for i:=1 to rem do
 	 res[i]:= m+1;
-      for i:=rem + 1 to k - rem do
+      for i:=rem + 1 to k do // we should write end of latitude
 	 res[i]:=m;
-      for i:=1 to 20 do
+      for i:=1 to k do
 	 writeln(res[i])
    end.
