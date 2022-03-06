@@ -1,0 +1,19 @@
+program subarra;
+type
+   sub:	array of [0..20] to integer;
+var
+   n,k,i,rem,m : integer;
+   res	       : sub;
+   begin
+      writeln('write Lenth of array = ');
+      read(n);
+      writeln('write Number of subarray');
+      read(k);
+      rem:= n mod k; // reminder of dividing}
+      m:= n div k;  
+      for i:=1 to rem do
+	 res[i]:= m+1;
+      for i:=1 to k - rem do
+	 res[i]:=m;
+      writeln(res[i])
+   end.
