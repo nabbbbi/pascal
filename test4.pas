@@ -8,8 +8,7 @@ var
       {$I-}
       if ParamCount < 2 then
 	 begin
-	 writeln(ErrOutput,'Need two parameters');
-	    halt(1)
+	 writeln(ErrOutput,'Need two parameters');	    halt(1)
 	 end;
       val(ParamStr(1),n,code);
       val(ParamStr(2),k,code); // just checking presence of parameters 
@@ -24,7 +23,7 @@ var
       for i:=1 to rem do
 	 res[i]:= m+1;
       for i:=rem + 1 to k do // we should write end of latitude
-	 res[i]:=m;
+	 res[i]:= m;
       for i:=1 to k do
 	 writeln(res[i])
    end.
