@@ -1,0 +1,9 @@
+program point;
+var
+   q : ^real; {address type}
+   n : real;
+   begin
+      n:=2.6; 
+      q:=@n;
+      writeln(q^)
+   end.

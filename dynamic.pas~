@@ -1,0 +1,16 @@
+program dynamic;
+procedure dyn;
+var
+   p : ^string;
+   q : string;
+   begin
+      write('type text, beach: 6');
+      readln(q);
+      new(p);
+      p:=@q;
+      writeln(p^);
+      dispose(p)
+   end;
+begin
+   dyn
+end.

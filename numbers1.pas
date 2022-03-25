@@ -1,27 +1,19 @@
-program numbers1;
-type
-   itemtr = ^item;
-   item	 = record
-	      data : integer;
-	      next : itemtr;
-	   end;
-   var
-      first,tmp	: itemtr;
-      n		: integer;
-      begin
-	 first:=nil;
-	 while not SeekEof do
-	    begin
-	       read(n);
-	       new(tmp);
-	       tmp^.data:=n;
-	       tmp^.next:=first;
-	       first:=tmp
-	    end;
-	 tmp:=first;
-	 while tmp <> nil do
-	    begin
-	       writeln(tmp^.data);
-	       tmp:=tmp^.next
-	    end
-      end.
+program Numbers1;
+const
+   n = 6;
+type	   
+   itemptr = ^item;
+   item	   = record
+		data : integer;
+		next : itemptr;
+	     end;    
+var
+   first,tmp : itemptr;
+   begin
+      first:=nil;
+	    new(tmp); {create element}
+	    tmp^.data:=n; {fill the element}
+	    tmp^.next:=first;
+      first:=tmp; {list element in the lis}
+      writeln(first^.data)
+   end.
