@@ -33,14 +33,14 @@ begin
         src := (turn div 2) mod 3 + 1;
         dst := src + 1;
         if dst = 4 then
-            dst := 1;
+            dst := 1
     end
     else
     begin
         src := 3 - ((turn div 2 + 2) mod 3);
         dst := src - 1;
         if dst = 0 then
-            dst := 3;
+            dst := 3
     end;
     MoveDisk(rods, src, dst)
 end;
@@ -107,5 +107,5 @@ begin
         writeln(ErrOutput, 'Invalid token count');
         halt(1)
     end;
-    solve(n);    
+    solve(n)
 end.

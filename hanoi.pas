@@ -1,74 +1,12 @@
-program hanoi3;
+program hanoi;
 
-function IntermRod(src, dst: integer) : integer;
+procedure solve(source, target, interm, n: integer);
 begin
-    if (src <> 1) and (dst <> 1) then
-        IntermRod := 1
-    else
-    if (src <> 2) and (dst <> 2) then
-        IntermRod := 2
-    else
-        IntermRod := 3;
-end;
-
-procedure solve(n: integer);
-type
-    TaskState = (StClearing, StLargest, StFinal);
-    ptask = ^task;
-    task = record
-        amount, src, dst: integer;
-        state: TaskState;
-        next: ptask;
-    end;
-var
-    first, tmp: ptask;
-begin
-    new(first);
-    first^.amount := n;
-    first^.src := 1;
-    first^.dst := 3;
-    first^.state := StClearing;
-    first^.next := nil;
-    while first <> nil do
-    begin
-        case first^.state of
-            StClearing:
-                begin
-		   first^.state:=StLargest;
-		   if first^.amount > 1 then
-		      begin
-			 new(tmp);
-			 tmp^.state:=StClearing;
-			 tmp^.amount:=first^.amount-1;
-			 tmp^.src:=first^.src;
-			 tmp^.dst:=IntermRod(first^.src,first^.dst);
-			 tmp^.next:=first;
-			 first:=tmp
-		      end;
-                end;
-            StLargest:
-                begin
-		   first^.state:=StFinal;
-		   writeln(first^.amount,': ',first^.src,' ->',first^.dst);
-		   if first^.amount > 1 then
-		      begin
-			 new(tmp);
-			 tmp^.state:=StClearing;
-			 tmp^.src:=Intermrod(first^.src,first^.dst);
-			 tmp^.dst:=first^.dst;
-			 tmp^.amount:=first^.amount - 1;
-			 tmp^.next:=first;
-			 first:=tmp
-		      end
-                end;
-            StFinal: 
-                begin
-		   tmp:=first;
-		   first:=first^.next;
-		   dispose(tmp)
-		end;
-        end
-    end;
+    if n = 0 then
+        exit;
+    solve(source, interm, target, n-1);
+    writeln(n, ': ',  source, ' -> ', target);
+    solve(interm, target, source, n-1)
 end;
 
 var
@@ -85,5 +23,5 @@ begin
         writeln(ErrOutput, 'Invalid token count');
         halt(1)
     end;
-    solve(n);    
+    solve(1, 3, 2, n)
 end.

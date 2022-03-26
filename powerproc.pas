@@ -11,6 +11,6 @@ var
    begin
       read(x);
       Power(x,p,q,r,n);
-      writeln(p:7,q,r,n)
+      writeln(p,q,r,n)
    end.
    

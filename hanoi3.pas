@@ -8,7 +8,7 @@ begin
     if (src <> 2) and (dst <> 2) then
         IntermRod := 2
     else
-        IntermRod := 3;
+        IntermRod := 3
 end;
 
 procedure solve(n: integer);
@@ -50,7 +50,7 @@ begin
                 begin
                     first^.state := StFinal;
                     writeln(first^.amount, ': ', first^.src,
-                            ' -> ', first^.dst);        
+                            ' -> ', first^.dst);
                     if first^.amount > 1 then
                     begin
                         new(tmp);
@@ -62,14 +62,14 @@ begin
                         first := tmp
                     end
                 end;
-            StFinal: 
+            StFinal:
                 begin
                     tmp := first;
                     first := first^.next;
                     dispose(tmp)
-                end;
+                end
         end
-    end;
+    end
 end;
 
 var
@@ -86,5 +86,5 @@ begin
         writeln(ErrOutput, 'Invalid token count');
         halt(1)
     end;
-    solve(n);    
+    solve(n)
 end.

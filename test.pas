@@ -1,26 +1,55 @@
-program pl;
-var
-  i,r	  : integer;
-{ôóíêöèÿ ïðîâåðêè íà ïðîñòîå}
-function Simple(x:integer):boolean;
-var
-  i:integer;
+program interf;
+type
+   itemptr = ^item;
+   item	   = record
+		data : integer;
+		next : itemptr;
+	     end;
+   type
+      StackOfLongint = itemptr;
+
+procedure SOLinit (var stack : StackOfLongint);
 begin
-  for i:=2 to x div 2 do
-    if x mod i=0 then
-    begin
-       Simple:=false;
-       exit
-    end;
-  Simple:=true;
+   stack:=nil
 end;
-{îñíîâíàÿ ïðîãðàììà}
+   
+procedure SOLpush (var stack : StackOfLongint; n:longint );
+var
+   tmp : StackOfLongint;
 begin
-  writeln('Ââåäèòå r:');
-  readln(r);
-  writeln('Ïðîñòûå:');
-  for i:=1 to r do
-    if Simple(i) then
-      write(i,' ');
-  writeln
-end.
+   new(tmp);
+   tmp^.data:=n;
+   tmp^.next:=stack;
+   stack:=tmp
+end;
+
+procedure SOLpop (var stack : StackOfLongint; var n: longint );
+var
+   tmp : StackOfLongint;
+begin
+   n:=stack^.data;
+   tmp:=stack;
+   stack:=stack^.next;
+   dispose(tmp)
+end;
+
+function SOLisempty(var stack : StackOfLongint ): boolean;
+begin
+   SOLisempty:=stack=nil
+end;   
+var
+   n : longint;
+   s : StackOfLongint;
+   begin
+      SOLinit(s);
+      while not SeekEof do
+	 begin
+	    read(n);
+	    SOLpush(s,n)
+	 end;
+      while not SOLisempty(s) do
+	 begin
+	    SOLpop(s,n);
+	    writeln(n)
+	 end
+   end.

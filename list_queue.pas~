@@ -1,0 +1,30 @@
+program queue;
+type
+   itemptr = ^item;
+   item	   = record
+		data : integer;
+		next : itemtpr;
+	     end;
+   var
+      last,first : itemtpr;
+      n		 : integer;
+      begin
+	 first:=nil;
+	 last:=nil;
+	 while not SeekEof do
+	    begin
+	       if first = nil then
+		  begin
+		     new(first);
+		     last:=first
+		  end;
+	       else
+		  begin
+		     new(last^.next);
+		     last:=last^.next
+		  end;
+	       read(n);
+	       last^.data:=n;
+	       last^.next:=nil
+	    end
+      end.
