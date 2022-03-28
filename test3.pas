@@ -44,4 +44,5 @@ var
       OneStringPush(os,text)
 	 end;
       writeln(text)
+
    end.
