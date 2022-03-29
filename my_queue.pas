@@ -55,6 +55,7 @@ var
    queue : QueueOfString;
    info	 : string;
    begin
+      write('Type info for queue: ');
       QOSinit(queue);
       while not SeekEof do
 	 begin

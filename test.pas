@@ -1,55 +1,23 @@
-program interf;
-type
-   itemptr = ^item;
-   item	   = record
-		data : integer;
-		next : itemptr;
-	     end;
-   type
-      StackOfLongint = itemptr;
-
-procedure SOLinit (var stack : StackOfLongint);
-begin
-   stack:=nil
-end;
-   
-procedure SOLpush (var stack : StackOfLongint; n:longint );
-var
-   tmp : StackOfLongint;
-begin
-   new(tmp);
-   tmp^.data:=n;
-   tmp^.next:=stack;
-   stack:=tmp
-end;
-
-procedure SOLpop (var stack : StackOfLongint; var n: longint );
-var
-   tmp : StackOfLongint;
-begin
-   n:=stack^.data;
-   tmp:=stack;
-   stack:=stack^.next;
-   dispose(tmp)
-end;
-
-function SOLisempty(var stack : StackOfLongint ): boolean;
-begin
-   SOLisempty:=stack=nil
-end;   
-var
-   n : longint;
-   s : StackOfLongint;
-   begin
-      SOLinit(s);
-      while not SeekEof do
-	 begin
-	    read(n);
-	    SOLpush(s,n)
-	 end;
-      while not SOLisempty(s) do
-	 begin
-	    SOLpop(s,n);
-	    writeln(n)
-	 end
-   end.
+program fil;
+const
+   filename = '/home/pi/some.txt';
+   message  = 'Hello, world';
+   var
+      f	: text;
+      begin
+	 {$I-}
+	 assign(f,filename); {concatenate file variable and name of file in directory}
+	 append(f); {open file and we can write from then beginning}
+	 if IOResult <> 0 then
+	    begin
+	       writeln('Could''t open file');
+	       halt(1)
+	    end;
+	 writeln(f,message); {just ckeck what we writing}
+	 if IOResult <> 0 then
+	    begin
+	       writeln('Could''t analys input');
+	       halt(1)
+	    end;
+	 close(f)
+      end.
