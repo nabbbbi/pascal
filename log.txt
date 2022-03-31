@@ -1,0 +1,2 @@
+Opening in existing browser session.
+[3374:3374:0100/000000.213956:ERROR:gpu_init.cc(454)] Passthrough is not supported, GL is egl, ANGLE is 
