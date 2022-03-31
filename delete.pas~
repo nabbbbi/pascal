@@ -1,0 +1,27 @@
+program delet;
+type
+   itemptr = ^item;
+   item	   = record
+		data : longint;
+		next : itemptr;
+	     end;
+type
+   queueoflongint = record
+		       first, last : itemptr;
+		    end;
+
+QOLinit;
+   begin
+   end;
+
+QOLpush;
+begin
+end;
+
+QOLpop;
+begin
+end;
+
+QOLisempty;
+begin
+end;
