@@ -8,65 +8,66 @@ type
 		next : itemptr;
 	     end;
    
-   type
-      QueueOfString = itemptr;
-      
-      
+type
+   QueueOfString = record
+		      first,last : itemptr;
+		   end;
 
-procedure QOSinit(var first,last : QueueOfString);
+procedure QOSinit(var queue : QueueOfString);
 begin
-   first:=nil;
-   last:=nil
+   queue.first:=nil;
+   queue.last:=nil
 end;
 
-procedure QOSput(var first,last : QueueOfString; s : string);
+procedure QOSput(var queue : QueueOfString; s : string);
 begin
-   if first = nil then
+   if queue.first = nil then
       begin
-	 new(first);
-	 last:=first
+	 new(queue.first);
+	 queue.last:=queue.first
       end
    else
       begin
-	 new(last^.next);
-	 last:=last^.next
+	 new(queue.last^.next);
+	 queue.last:=queue.last^.next
       end;
-   last^.info:=s;
-   last^.next:=nil
+   queue.last^.info:=s;
+   queue.last^.next:=nil
 end;
 
-procedure QOSdel(var first : QueueOfString);
+procedure QOSdel (var queue : QueueOfString);
 var
-   tmp :  QueueOfString ;
-   pp  : ^QueueOfString;
+   tmp : itemptr;
+   pp  : ^itemptr ;
 begin
-   pp:=@first;
+   pp:=@queue.first;
    if pp^^.data = ParamStr(1) then
       begin
+	 new(tmp);
 	 tmp:=pp^;
-	 pp^:=pp^^.next;
+	 pp^:=pp^.next;
 	 dispose(tmp)
-      end
+      end;
    else
       pp:=@(pp^^.next)
 end;
 
-procedure QOSget(var first,last : QueueOfString; var s : string);
+procedure QOSget(var queue : QueueOfString; var s : string);
 var
    tmp : itemptr;
 begin
-   s:=first^.info;
+   s:=queue.first^.info;
    new(tmp);
-   tmp:=first;
-   first:=first^.next;
-   if first = nil then
-      last := nil;
+   tmp:=queue.first;
+   queue.first:=queue.first^.next;
+   if queue.first = nil then
+      queue.last := nil;
    dispose(tmp)
 end;
 
-function QOSisempty(var first : QueueOfString):boolean;
+function QOSisempty(var queue : QueueOfString):boolean;
 begin
-   QOSisempty:=first=nil
+   QOSisempty:=queue.first=nil
 end;
 
 procedure addtofile (var f : text; n : string);
@@ -82,26 +83,21 @@ begin
 end;
 
 var
-   first,last : QueueOfString;
+   queue : QueueOfString;
    info	 : string;
    f	 : text;
    begin
       {$I-}
-     { if ParamCount < 1 then
-	 begin
-	    writeln('Couldn''t specifize info for delete');
-	    halt(1)
-	 end;}
       write('Type info for queue: ');
-      QOSinit(first,last);
+      QOSinit(queue);
       while not SeekEof do
 	 begin
 	    read(info);
-	    QOSput(first,last,info)
+	    QOSput(queue,info)
 	 end;
-      while not QOSisempty(first,last) do
+      while not QOSisempty(queue) do
 	 begin
-	    QOSget(first,last,info);
+	    QOSget(queue,info);
 	    Addtofile(f,info)
 	 end
    end.

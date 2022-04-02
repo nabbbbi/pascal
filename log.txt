@@ -1,2 +1,32 @@
 Opening in existing browser session.
 [3374:3374:0100/000000.213956:ERROR:gpu_init.cc(454)] Passthrough is not supported, GL is egl, ANGLE is 
+Opening in existing browser session.
+[4051:4051:0100/000000.939055:ERROR:gpu_init.cc(454)] Passthrough is not supported, GL is egl, ANGLE is 
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:17:11.861: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:22:37.582: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:22:40.880: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:23:10.453: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:24:05.490: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:24:49.848: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:25:10.789: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Gtk-CRITICAL **: 14:28:05.368: IA__gtk_text_iter_set_line_offset: assertion 'char_on_line <= chars_in_line' failed
+
+(claws-mail:9159): Claws-Mail-WARNING **: 14:50:23.686: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 15:01:03.047: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 15:07:29.095: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 15:20:51.674: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 15:28:46.747: can't open signature file: '/home/pi/.signature'
+
+(claws-mail:9159): Claws-Mail-WARNING **: 15:38:35.166: can't open signature file: '/home/pi/.signature'

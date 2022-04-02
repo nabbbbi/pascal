@@ -1,48 +1,19 @@
-program test;
-type
-   itemptr = ^item;
-   item	   = record
-		t    : string;
-		next : itemptr;
-	     end;
-type
-   TestStrings = itemptr;
-
-procedure OneStringInit(var os : TestStrings);
-begin
-   os:=nil;
-end;
-
-procedure OneStringPush(var os : TestStrings; text:string);
+program test3;
+procedure ff;
 var
-   tmp : TestStrings;
-begin
-   new(tmp);
-   tmp^.t:=text;
-   tmp^.next:=os;
-   os:=tmp
-end;
-
-procedure OneStringPop(var os : TestStrings; var text : string);
+   f : text;
+   s : string;
    begin
-      text:=os^.t
-   end;
-
-{function OneStringisempty(var os :TestStrings): boolean;
-begin
-   OneStringisempty:=os=nil
-end;}
-
-var
-   text	: string;
-   os	: TestStrings;
-   begin
-      OneStringInit(os);
-      while not SeekEof do
+      assign(f,'/home/pi/some.txt'); {assign var to file}
+      reset(f); {open file in read mode}
+      while not SeekEof(f) do
 	 begin
-      read(text);
-      OneStringPush(os,text)
+      read(f,s);
+      readln(f);
+      writeln(s)
 	 end;
-      writeln(text)
-
-   end.
+      close(f)
+   end;
+begin
+   ff
+end.
