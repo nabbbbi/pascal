@@ -49,7 +49,7 @@ begin
    QOLisempty:=queue.first=nil {first or last nil, it doesn't matter}
 end;
 
-procedure QOSsubstitude(first : stringsfromfile);
+procedure QOSsubstitude(first : );
 var
    tmp : itemptr;
    pp  : ^itemptr;

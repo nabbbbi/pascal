@@ -113,15 +113,36 @@ begin
    QOSisempty:=first=nil
 end;
 
+procedure QOSsubstitude(first : stringsfromfile);
+var
+   tmp : itemptr;
+   pp  : ^itemptr;
+begin
+   pp:=@first;
+   while pp^^.txt <> ParamStr(1) do
+      pp:=@(pp^^.next);
+   new(tmp);
+   tmp^.txt:=ParamStr(2);
+   tmp^.next:=pp^;
+   pp^:=tmp
+end;
+
 var
    s	      : string;
    first,last : stringsfromfile;
    begin
+      if ParamCount < 1 then
+	 writeln('# Type 1 argument to delete item',#10,'# Type 2 arguments to add item',#10,#9,'1st - before what we adding',#10,#9,#9,'2nd - what we adding)',#10);
       QOSinit(first,last);
       readfromfile(first,last);{list is ready}
-      if ParamCount > 0 then
+      if ParamCount = 1 then
 	 begin
 	    QOSdel(first); {delete usury item}
+	    QOSrewrite(first,s)
+	 end;
+      if ParamCount = 2 then
+	 begin
+	    QOSsubstitude(first);
 	    QOSrewrite(first,s)
 	 end;
       while not QOSisempty(first) do {begin reading}

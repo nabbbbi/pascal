@@ -1,6 +1,6 @@
 program test2;
 const
-   pathtofile = '/home/pi/some.txt';
+   pathtofile = '/home/pi/git/pascal/queue/some.txt';
 type
    itemptr = ^item;
    item	   = record

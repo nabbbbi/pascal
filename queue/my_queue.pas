@@ -1,6 +1,6 @@
 program myqueue;
 const
-   path	= '/home/pi/some.txt';
+   path	= '/home/pi/git/pascal/queue/some.txt';
 type
    itemptr = ^item;
    item	   = record
@@ -34,7 +34,24 @@ begin
    queue.last^.info:=s;
    queue.last^.next:=nil
 end;
-
+{
+procedure QOSdel (var queue : QueueOfString);
+var
+   tmp : itemptr;
+   pp  : ^itemptr ;
+begin
+   pp:=@queue.first;
+   if pp^^.data = ParamStr(1) then
+      begin
+	 new(tmp);
+	 tmp:=pp^;
+	 pp^:=pp^.next;
+	 dispose(tmp)
+      end;
+   else
+      pp:=@(pp^^.next)
+end;
+}
 procedure QOSget(var queue : QueueOfString; var s : string);
 var
    tmp : itemptr;
