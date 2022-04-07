@@ -30,3 +30,11 @@ Opening in existing browser session.
 (claws-mail:9159): Claws-Mail-WARNING **: 15:28:46.747: can't open signature file: '/home/pi/.signature'
 
 (claws-mail:9159): Claws-Mail-WARNING **: 15:38:35.166: can't open signature file: '/home/pi/.signature'
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile
+libpng warning: iCCP: known incorrect sRGB profile

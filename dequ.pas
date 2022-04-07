@@ -80,6 +80,7 @@ var
       while LongDequeIsEmpty(d) do
 	 begin
 	    LongDequePopFront(d,n);
-	    LongDequePopBack(d,n)
+	    LongDequePopBack(d,n);
+	    writeln(n)
 	 end
    end.

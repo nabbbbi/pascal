@@ -1,0 +1,38 @@
+program TreeNod;
+type
+   TreeNodePtr = ^TreeNode;
+   TreeNode    = record
+		    data       : longint;
+		    left,rigth : TreeNodePtr;
+		 end;
+procedure AddToTree (var p : TreeNodePtr; n : longint; var ok : boolean);
+begin
+   if p = nil then
+      begin
+	 new(p);
+	 p^.left:=nil;
+	 p^.right:=nil;
+	 p^.data:=n;
+	 ok:=true
+      end
+   else
+      if n < p^.data then
+	 AddToTree(p^.left,n,ok)
+      else if n > p^.data then
+	 AddToTree(p^.right,n,ok)
+	 else
+	    ok:=false
+end;
+
+var
+   p  : TreeNodePtr;
+   n  : longint;
+   ok : boolean;
+   begin
+      while not eof do
+	 begin
+	    read(n);
+	    AddToTree(p,n,ok);
+	    writeln(n)
+	 end
+   end.

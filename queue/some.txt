@@ -8,3 +8,5 @@ somesome
 3
 chotka
 typetype
+check OS version >> grep VERSION /etc/os-release
+Rule of Rose >> ps2
